@@ -1,0 +1,253 @@
+/* --- 1. FONTS --- */
+@font-face {
+  font-family: "Font Awesome Solid";
+  src: url("assets/fa-solid-900.ttf") format("truetype");
+}
+
+/* Menggunakan Font Awesome untuk ikon yang tidak ada di aset gambar */
+.fa-solid {
+  font-family: "Font Awesome Solid";
+  font-weight: 900;
+}
+
+/* --- 2. WARNA DAN RESET --- */
+:root {
+  --primary-blue: #838bff;
+  --secondary-orange: #ff5722; /* Warna merah oranye di gambar */
+  --background-light: #e0e0f8;
+  --card-background: #ffffff;
+  --text-dark: #333;
+  --text-light: #fff;
+  --ad-border-color: #f0f0f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+a {
+  text-decoration: none;
+}
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--primary-blue);
+  padding: 0 15px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+}
+
+/* --- 3. HEADER --- */
+.header {
+  color: var(--text-light);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.greeting-box h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.greeting-box p {
+  font-size: 0.75em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.sun-icon img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.pencil-icon {
+  font-size: 2.5em;
+  color: #ffd700; /* Kuning emas */
+  transform: rotate(30deg);
+}
+
+.headers {
+  background-color: white;
+  width: 380px;
+  height: 600px;
+  border-radius: 30px;
+}
+/* --- 4. MAIN CARD & SLIDER ANIMATION --- */
+.main-card {
+  background-color: var(--card-background);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.banner-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 200px; /* Tinggi visual banner */
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 3 gambar */
+  height: 100%;
+  transition: transform 0.5s ease-in-out; /* Animasi perpindahan slide */
+}
+
+.slides img {
+  width: calc(100% / 3); /* Setiap gambar mengambil 1/3 dari lebar total */
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Tambahkan sedikit latar belakang transparan agar teks lebih terbaca */
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  pointer-events: none; /* Agar klik bisa tembus ke slider jika diperlukan */
+}
+
+.logo-circle {
+  position: absolute;
+  top: 10px;
+  /* Sesuaikan posisi horizontal agar di tengah */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--card-background);
+  border: 3px solid #ffcc00;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: var(--primary-blue);
+  z-index: 10;
+}
+
+.logo-circle img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.overlay-text h2 {
+  font-size: 1.6em;
+  color: var(--text-light); /* Membuat teks putih agar kontras di atas gambar */
+  line-height: 1.2;
+  margin-top: 50px; /* Jarak dari logo-circle */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Bayangan untuk kontras */
+}
+
+.good-luck {
+  font-weight: bold;
+  color: #ffcc00; /* Kuning */
+  margin: 5px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slogan {
+  font-size: 0.75em;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- 5. MENU GRID --- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 0 5px;
+}
+
+.menu-item {
+  border-radius: 10px;
+  padding: 15px 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.icon-box img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.blue-box {
+  background-color: var(--primary-blue);
+  border: 1px solid #4caf50; /* Hijau */
+}
+
+.red-box {
+  background-color: #ffe0e0; /* Merah muda */
+  border: 1px solid var(--secondary-orange); /* Merah oranye */
+}
+
+.menu-item span {
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* --- 6. BUTTON --- */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50px;
+}
+.primary-button {
+  width: 50%;
+  background-color: var(--primary-blue);
+  color: var(--text-light);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+}
